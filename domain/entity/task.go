@@ -20,8 +20,15 @@ type Task struct {
 }
 
 type TaskRepository interface {
-	Create(task *Task) (*Task, error)
+	Create(task *Task) error
 	Read() ([]*Task, error)
+	Update(task *Task) error
+	Delete(ID int) error
+}
+
+type TaskService interface {
+	Post(task *Task) error
+	Get() ([]*Task, error)
 	Update(task *Task) error
 	Delete(ID int) error
 }

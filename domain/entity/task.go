@@ -1,6 +1,8 @@
 package entity
 
-import "time"
+import (
+	"time"
+)
 
 type TaskStatus int
 
@@ -15,4 +17,11 @@ type Task struct {
 	Description string     `json:"description"`
 	Status      TaskStatus `json:"status"`
 	CreatedAt   time.Time  `json:"created_at"`
+}
+
+type TaskRepository interface {
+	Create(task *Task) (*Task, error)
+	Read() ([]*Task, error)
+	Update(task *Task) error
+	Delete(ID int) error
 }

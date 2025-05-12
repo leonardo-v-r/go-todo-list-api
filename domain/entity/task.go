@@ -2,7 +2,7 @@ package entity
 
 import "time"
 
-type TaskStatus string
+type TaskStatus int
 
 const (
 	Pending = iota

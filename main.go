@@ -20,6 +20,10 @@ func main() {
 	}
 	defer db.Close()
 
+	if err = db.Migrate(); err != nil {
+		log.Fatal(err)
+	}
+
 	router := gin.Default()
 	router.Run(":5000")
 }

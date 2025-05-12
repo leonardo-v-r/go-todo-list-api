@@ -13,6 +13,7 @@ func NewTaskService(repo entity.TaskRepository) *TaskService {
 }
 
 func (s *TaskService) Post(task *entity.Task) error {
+	task.Status = entity.Pending
 	if err := s.repo.Create(task); err != nil {
 		return err
 	}
